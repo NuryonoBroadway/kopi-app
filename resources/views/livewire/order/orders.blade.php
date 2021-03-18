@@ -91,7 +91,11 @@
           @if (!Auth::user()->is_orders)
             </ul><a wire:click="checkout({{$orders}})" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
           @else 
-          <h4 class="text-muted mt-5 text-center fst-italic">In Process....</h4>
+          @if (Auth::user()->ordersKode->process)
+          <h4 class="text-muted mt-5 text-center fst-italic">Orders process, please pay first before enjoying your meal</h4></h4>
+          @else
+          <h4 class="text-muted mt-5 text-center fst-italic">Please wait, Confirmation....</h4>
+          @endif
           @endif
         </div>
       </div>

@@ -76,4 +76,8 @@ class User extends Authenticatable
     public function history() {
         return $this->hasMany(Process::class, 'user_id', 'id');
     }
+
+    public function ordersKode() {
+        return $this->hasOne(Orders_kode::class,'user_id', 'id');
+    }
 }

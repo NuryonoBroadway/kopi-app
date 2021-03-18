@@ -18,5 +18,9 @@ class Orders_kode extends Model
     public function users() {
         return $this->hasOne(User::class, 'id', 'user_id', );
     }
+
+    public function usersKode() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
 
