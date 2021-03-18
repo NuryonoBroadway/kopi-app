@@ -12,8 +12,10 @@ use Livewire\Component;
 class Homepage extends Component
 {
     public function mount() {
-        if (Auth::user()->roles[0]->name === 'admin') {
-            return redirect()->route('order-product');
+        if(Auth::user()) {
+            if (Auth::user()->roles[0]->name === 'admin') {
+                return redirect()->route('order-product');
+            }
         }
     }
 
